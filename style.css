@@ -1,0 +1,646 @@
+/* ===== CORES E BASE ===== */
+:root {
+  --preto: #151210;
+  --preto-2: #1f1b17;
+  --creme: #efe6d2;
+  --creme-2: #f7f1e3;
+  --vermelho: #c8372d;
+  --mostarda: #e0a82e;
+  --cinza: #a69d8f;
+  --tinta: #221d18;
+  --azul: #2a5db0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: var(--preto);
+  color: var(--creme);
+}
+
+h1, h2, h3 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ===== BOTÕES ===== */
+.botao {
+  display: inline-block;
+  background: var(--mostarda);
+  color: var(--tinta);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 14px 26px;
+  border: 3px solid var(--mostarda);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.botao:hover {
+  background: transparent;
+  color: var(--mostarda);
+}
+
+.botao-vazio {
+  background: transparent;
+  color: var(--creme);
+  border-color: var(--creme);
+}
+
+.botao-vazio:hover {
+  background: var(--creme);
+  color: var(--tinta);
+}
+
+/* ===== MENU ===== */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--preto);
+}
+
+.topo-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Anton', sans-serif;
+  font-size: 1.7rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+/* Poste de barbeiro pequeno ao lado do logo */
+.logo-poste {
+  display: block;
+  width: 14px;
+  height: 32px;
+  border-radius: 7px;
+  border: 2px solid var(--creme);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--vermelho) 0 5px,
+    var(--creme) 5px 10px,
+    var(--azul) 10px 15px,
+    var(--creme) 15px 20px
+  );
+}
+
+/* Listra de poste de barbeiro (topo e rodapé) */
+.listra {
+  height: 12px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--vermelho) 0 14px,
+    var(--creme) 14px 28px,
+    var(--azul) 28px 42px,
+    var(--creme) 42px 56px
+  );
+}
+
+.menu {
+  display: flex;
+  gap: 28px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu a:hover {
+  color: var(--mostarda);
+}
+
+.botao-menu {
+  display: none;
+  background: none;
+  border: 2px solid var(--creme);
+  color: var(--creme);
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+/* ===== INÍCIO ===== */
+.hero {
+  padding: 70px 0 80px;
+}
+
+.hero-grade {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.selo {
+  display: inline-block;
+  border: 2px dashed var(--mostarda);
+  color: var(--mostarda);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  transform: rotate(-2deg);
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 5.6rem);
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  color: var(--vermelho);
+}
+
+.hero-aviso {
+  max-width: 480px;
+  color: var(--cinza);
+  margin-bottom: 30px;
+}
+
+.hero-botoes {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ===== ESPAÇOS PARA FOTOS ===== */
+.foto {
+  position: relative;
+  background: var(--preto-2);
+  border: 2px dashed #4a4137;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.foto span {
+  color: var(--cinza);
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 10px;
+}
+
+.foto img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.foto-hero {
+  aspect-ratio: 4 / 5;
+  border: 3px solid var(--creme);
+  box-shadow: 10px 10px 0 var(--vermelho);
+  flex: 1;
+  min-width: 0;
+}
+
+/* Foto + poste de barbeiro girando */
+.hero-visual {
+  display: flex;
+  gap: 22px;
+  align-items: stretch;
+  transform: rotate(1.5deg);
+}
+
+.poste {
+  position: relative;
+  width: 46px;
+  flex-shrink: 0;
+  border-radius: 23px;
+  border: 3px solid var(--creme);
+  overflow: hidden;
+}
+
+/* As listras ficam num elemento maior que o poste e sobem sem parar */
+.poste::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -80px;
+  bottom: -80px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--vermelho) 0 14px,
+    var(--creme) 14px 28px,
+    var(--azul) 28px 42px,
+    var(--creme) 42px 56px
+  );
+  animation: girar 1.6s linear infinite;
+}
+
+/* Brilho para parecer um cilindro de vidro */
+.poste::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 8px 0 10px rgba(255, 255, 255, 0.3), inset -8px 0 10px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes girar {
+  from { transform: translateY(0); }
+  to   { transform: translateY(79.2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poste::before {
+    animation: none;
+  }
+}
+
+/* ===== FAIXA DE INFORMAÇÕES ===== */
+.faixa {
+  background: var(--creme);
+  color: var(--tinta);
+  padding: 26px 0;
+}
+
+.faixa-grade {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 20px;
+}
+
+.faixa small {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--vermelho);
+}
+
+.faixa strong {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+
+/* ===== SEÇÕES ===== */
+.secao {
+  padding: 90px 0;
+}
+
+.secao h2 {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin-bottom: 36px;
+}
+
+.secao-clara {
+  background: var(--creme);
+  color: var(--tinta);
+}
+
+/* ===== COMO FUNCIONA ===== */
+.passos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.passo {
+  border-top: 3px solid var(--creme);
+  padding-top: 16px;
+}
+
+.numero {
+  font-family: 'Anton', sans-serif;
+  font-size: 3rem;
+  color: var(--vermelho);
+  line-height: 1;
+}
+
+.passo h3 {
+  font-size: 1.4rem;
+  margin: 8px 0;
+}
+
+.passo p {
+  color: var(--cinza);
+}
+
+/* ===== SERVIÇOS ===== */
+.servicos-grade {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.servicos-texto {
+  max-width: 340px;
+}
+
+.servicos-texto a {
+  font-weight: 700;
+  color: var(--vermelho);
+}
+
+.lista-servicos {
+  list-style: none;
+}
+
+.lista-servicos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 2px dashed #b9ad94;
+}
+
+.lista-servicos li:first-child {
+  border-top: 2px dashed #b9ad94;
+}
+
+.lista-servicos h3 {
+  font-size: 1.5rem;
+}
+
+.servico-nome {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Ícones dos serviços (desenhados em SVG) */
+.icone {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  color: var(--vermelho);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lista-servicos p {
+  font-size: 0.95rem;
+  color: #6b6154;
+}
+
+.preco {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.6rem;
+  color: var(--vermelho);
+  white-space: nowrap;
+}
+
+/* ===== GALERIA ===== */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 240px;
+  gap: 16px;
+}
+
+.galeria .foto {
+  min-height: 0;
+}
+
+.galeria .foto-grande {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* ===== AVALIAÇÕES ===== */
+.avaliacoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.avaliacao {
+  background: var(--creme-2);
+  border: 3px solid var(--tinta);
+  box-shadow: 6px 6px 0 var(--tinta);
+  padding: 26px;
+}
+
+.avaliacao:nth-child(1) {
+  transform: rotate(-1deg);
+}
+
+.avaliacao:nth-child(2) {
+  transform: rotate(0.8deg);
+}
+
+.avaliacao:nth-child(3) {
+  transform: rotate(-0.6deg);
+}
+
+.estrelas {
+  color: var(--vermelho);
+  letter-spacing: 3px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.avaliacao cite {
+  display: block;
+  margin-top: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* ===== ONDE FICA ===== */
+.onde-grade {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.onde-aviso {
+  max-width: 340px;
+  color: var(--cinza);
+}
+
+.onde-info div {
+  padding: 16px 0;
+  border-bottom: 2px dashed #4a4137;
+}
+
+.onde-info small {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--mostarda);
+}
+
+.onde-info p {
+  font-size: 1.2rem;
+}
+
+.onde-info a {
+  text-decoration: none;
+}
+
+.onde-info .botao {
+  margin-top: 26px;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape {
+  background: #0b0908;
+  padding: 0 0 24px;
+  color: var(--cinza);
+  font-size: 0.95rem;
+}
+
+.rodape .listra {
+  margin-bottom: 24px;
+}
+
+.rodape-linha {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rodape strong {
+  color: var(--creme);
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 900px) {
+  .hero-grade,
+  .servicos-grade,
+  .onde-grade {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-visual {
+    max-width: 440px;
+  }
+
+  .foto-hero {
+    aspect-ratio: 1 / 1;
+  }
+
+  .avaliacoes {
+    grid-template-columns: 1fr;
+  }
+
+  .avaliacao:nth-child(n) {
+    transform: none;
+  }
+
+  .galeria {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+
+  .galeria .foto-grande {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .secao {
+    padding: 65px 0;
+  }
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 700px) {
+  body {
+    font-size: 17px;
+  }
+
+  .botao-menu {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--preto);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 3px solid var(--vermelho);
+  }
+
+  .menu.aberto {
+    display: flex;
+  }
+
+  .menu a {
+    padding: 16px 5%;
+    border-top: 1px solid #332c25;
+  }
+
+  .hero {
+    padding: 45px 0 60px;
+  }
+
+  .hero-botoes .botao {
+    width: 100%;
+    text-align: center;
+  }
+
+  .faixa-grade {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .faixa-endereco {
+    grid-column: span 2;
+  }
+
+  .passos {
+    grid-template-columns: 1fr;
+  }
+}
